@@ -1,8 +1,8 @@
 {
-  "appid": "i2qhg7lltebz6itlrchrv4sw",
-  "appkey": "ccae35188acb74bdfe225bd50e2109a7c091c148",
-  "apptitle": "CICD Client App",
-  "connectiontag": "0.0.1",
-  "host": "https://cvicensa.us.demos.redhatmobile.com",
-  "projectid": "i2qhg7ldd5g3k6i2jnbfqgpj"
+  "apptitle": "Your title",
+  "host": "<host>",
+  "appid": "<appid>",
+  "projectid": "<projectid>",
+  "appkey": "<appkey>",
+  "connectiontag": "<connectiontag>"
 }
