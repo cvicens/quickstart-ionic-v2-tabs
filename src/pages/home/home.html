@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="card-background-page">
+  <h2>Red Hat MAP - Hello Test</h2>
+  <p>
+    This is just and example AngularJS 2 app using the hello endpoint.
+    Please, type a name (Carlos, Pedro and Paolo for instance) and hit the button
+  </p>
+
+  <ion-item>
+    <ion-label floating>Name</ion-label>
+    <ion-input type="text" [(ngModel)]="name"></ion-input>
+  </ion-item>
+
+  <div padding>
+    <button ion-button color="primary" (click)="sayHi()" block>Say Hi</button>
+  </div>
+
+  <ion-card  [hidden]="helloMessage.length <= 0">
+    <img src="{{cardImage}}"/>
+    <div class="card-title">{{helloMessage}}</div>
+  </ion-card>
+
+</ion-content>
