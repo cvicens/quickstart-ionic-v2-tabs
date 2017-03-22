@@ -18,7 +18,7 @@ let IMAGES = {
 export class HomePage {
   name: string;
   helloMessage: string = '';
-  cardImage: string = 'images/' + IMAGES['DEFAULT'] + '.png';
+  cardImage: string = 'assets/images/' + IMAGES['DEFAULT'] + '.png';
 
   constructor(public navCtrl: NavController) {
 
@@ -64,9 +64,9 @@ export class HomePage {
       console.log('result', result);
       this.helloMessage = result.msg.toUpperCase();
       if (result && result.msg && IMAGES[result.msg.toUpperCase()]) {
-        this.cardImage = 'images/' + IMAGES[result.msg.toUpperCase()] + '.png';
+        this.cardImage = 'assets/images/' + IMAGES[result.msg.toUpperCase()] + '.png';
       } else {
-        this.cardImage = 'images/' + IMAGES['DEFAULT'] + '.png';
+        this.cardImage = 'assets/images/' + IMAGES['DEFAULT'] + '.png';
       }
     })
     .catch( (err) => {
