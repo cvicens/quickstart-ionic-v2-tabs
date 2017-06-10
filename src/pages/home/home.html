@@ -7,8 +7,8 @@
 <ion-content padding class="card-background-page">
   <h2>Red Hat MAP - Hello Test</h2>
   <p>
-    This is just and example AngularJS 2 app using the hello endpoint.
-    Please, type a name (Carlos, Pedro and Paolo for instance) and hit the button
+    This is just and example Ionic 2 app using the hello endpoint.
+    Please, type something (your name for instance) and hit the button
   </p>
 
   <ion-item>
@@ -17,12 +17,21 @@
   </ion-item>
 
   <div padding>
-    <button ion-button color="primary" (click)="sayHi()" block>Say Hi</button>
+    <button ion-button color="primary" (click)="sayHello()" block>Say Hello From The Cloud</button>
   </div>
 
-  <ion-card  [hidden]="helloMessage.length <= 0">
-    <img src="{{cardImage}}"/>
-    <div class="card-title">{{helloMessage}}</div>
-  </ion-card>
+<ion-card>
+
+  <ion-card-header>
+    Messages
+  </ion-card-header>
+
+  <ion-card-content>
+    <p>{{helloMessage}}</p>
+  </ion-card-content>
+
+</ion-card>
+
+ 
 
 </ion-content>
