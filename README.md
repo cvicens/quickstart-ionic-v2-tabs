@@ -43,6 +43,8 @@ $ cd <your-new-app>
 ```
 
 ### Install dependencies
+Before running the install command please check that node 6 is in your PATH.
+
 ```
 $ npm install
 ...
