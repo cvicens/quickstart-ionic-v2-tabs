@@ -26,7 +26,8 @@ platforms/
 plugins/
 plugins/android.json
 plugins/ios.json
-www/
+# We need to allow commits for www because for the time being transpiling can only happen locally
+#www/ 
 $RECYCLE.BIN/
 
 .DS_Store
