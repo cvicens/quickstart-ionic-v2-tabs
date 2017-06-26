@@ -1,11 +1,25 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+import { BehaviorSubject } from "rxjs/Rx";
 
 import * as $fh from 'fh-js-sdk';
 
+const INIT_EVENT = 'fhinit';
+
 @Injectable()
 export class FHService {
+  private _ready: BehaviorSubject<boolean> = new BehaviorSubject(false);
+  public readonly ready: Observable<boolean> = this._ready.asObservable();
+
   constructor() {
-    
+    $fh.on(INIT_EVENT, (event) => {
+      console.log('Service ready with url:', this.getUrl());
+      if (typeof this.getUrl() === 'undefined') {
+        this._ready.next(false);  
+      } else {
+        this._ready.next(true);
+      }
+    });
   }
 
   getUrl = () => {
@@ -13,12 +27,12 @@ export class FHService {
   }
 
 
-  auth = (username: string, password: string) => {
+  auth = (policyId:string, appId:string, username: string, password: string) => {
     return new Promise<any>(function(resolve, reject) {
         // LDAP or Platform User Example
         $fh.auth({
-          "policyId": "My LDAP Auth Policy", // name of auth policy to use - see link:{ProductFeatures}#administration[Auth Policies Administration] for details on how to configure an auth policy
-          "clientToken": "myAppId", // Your App ID
+          "policyId": policyId, // name of auth policy to use - see link:{ProductFeatures}#administration[Auth Policies Administration] for details on how to configure an auth policy
+          "clientToken": appId, // Your App ID
           "params": { // the parameters associated with the requested auth policy - see below for full details.
             "userId": username, 
             "password": password 

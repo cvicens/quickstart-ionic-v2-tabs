@@ -10,14 +10,21 @@ import { FHService } from '../../services/fh.service';
   templateUrl: 'home.html'
 })
 export class HomePage {
+  fhReady: boolean;
   name: string;
   helloMessage: string = '';
 
   constructor(public navCtrl: NavController, private fhService: FHService) {
-
+    this.fhService.ready.subscribe(value => this.fhReady = value);
   }
 
   sayHello () {
+    if (!this.fhReady) {
+      console.log('FHService not ready yet!');
+      this.helloMessage = 'Red Hat Map Service not ready yet, try again please ;-)';
+      return;
+    }
+
     console.log('Before calling hello endpoint');
 
     this.helloMessage = 'Before calling...';
